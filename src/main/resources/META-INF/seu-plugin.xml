@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<seuServerPlugin xmlns="http://seu.sourceforge.net/schema/serverplugin"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://seu.sourceforge.net/schema/ServerPlugin.xsd">
+	<name>Oracle plugin</name>
+	<version>${pom.version}</version>
+	<agent>
+		<name>OracleAgent</name>
+		<javaClass>com.soffid.iam.agent.oracle.OracleAgent</javaClass>
+		<userInterface>OracleAgent.zul</userInterface>
+		<enableAccessControl>true</enableAccessControl>
+		<enableAttributeMapping>true</enableAttributeMapping>
+		<enableObjectTriggers>true</enableObjectTriggers>
+		<object systemObject="SYS.DBA_USERS" soffidObject="user">
+		</object>
+
+		<object systemObject="DBA_USERS" soffidObject="account">
+				direction="inout" />
+		</object>
+
+		<object systemObject="SYS.DBA_ROLE" soffidObject="role">
+		</object>
+
+		<object systemObject="SYS.DBA_ROLE_PRIVS" soffidObject="grant">
+		</object>
+
+	</agent>
+</seuServerPlugin>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?component name="input_criteri" macro-uri="comu/input_criteri.zul"?>
+<?component name="input_dada" macro-uri="comu/input_dada.zul"?>
+<?component name="input_etiqueta" macro-uri="comu/input_etiqueta.zul"?>
+<?component name="input_password" macro-uri="comu/input_password.zul"?>
+
+<grid width="99%">
+	<columns visible="false"><column width="14%"/><column/> </columns>
+	<rows>
+		<row>
+			<input_etiqueta value="User" />
+			<hbox width="90%">
+				<input_dada bind="@param0" lectura="${!canModifyAgent}"
+					width_custom="98%" />
+			</hbox>
+		</row>
+		<row>
+			<input_etiqueta value="Oracle password" />
+			<hbox width="90%">
+				<input_password bind="@param1" lectura="${!canModifyAgent}"
+					width_custom="98%" />
+			</hbox>
+		</row>
+		<row>
+			<input_etiqueta value="Connection string to database" />
+			<hbox width="90%">
+				<input_dada bind="@param2" lectura="${!canModifyAgent}"
+					width_custom="98%" />
+			</hbox>
+		</row>
+		<row>
+			<input_etiqueta value="Password to protect roles" />
+			<hbox width="90%">
+				<input_password bind="@param3" lectura="${!canModifyAgent}"
+					width_custom="98%" />
+			</hbox>
+		</row>
+		<row>
+			<input_etiqueta value="Default user profile" />
+				<input_dada bind="@param5" lectura="${!canModifyAgent}"
+					width_custom="98%" />
+		</row>
+		<row>
+			<input_etiqueta value="Default tablespace" />
+				<input_dada bind="@param6" lectura="${!canModifyAgent}"
+					width_custom="98%" />
+		</row>
+		<row>
+			<input_etiqueta value="Temporary tablespace" />
+				<input_dada bind="@param7" lectura="${!canModifyAgent}"
+					width_custom="98%" />
+		</row>
+		<row>
+			<input_etiqueta value="Enable debug" />
+			<listbox bind="@param4" mold="select" disabled="{!canModifyAgent}" width="100px">
+				<listitem value="false">
+					<listcell label="No"/>
+				</listitem>
+				<listitem value="true">
+					<listcell label="Yes"/>
+				</listitem>
+			</listbox>
+		</row>
+	</rows>
+</grid>
