@@ -10,7 +10,7 @@
   <artifactId>postgresql-plugin</artifactId>
   <packaging>jar</packaging>
   <name>Postgresql plugin</name>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <dependencies>
 	<dependency>
 		<groupId>org.postgresql</groupId>
@@ -36,7 +36,7 @@
   </licenses>
   <scm>
           <connection>scm:git:ssh://git@github.com/SoffidIAM/plugin-postgresql.git</connection>
-          <tag>HEAD</tag>
+          <tag>postgresql-plugin-1.0.1</tag>
   </scm>
   <build>
    <plugins>
