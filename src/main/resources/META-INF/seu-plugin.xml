@@ -3,26 +3,25 @@
 <seuServerPlugin xmlns="http://seu.sourceforge.net/schema/serverplugin"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://seu.sourceforge.net/schema/ServerPlugin.xsd">
-	<name>Oracle plugin</name>
+	<name>Postgresql plugin</name>
 	<version>${pom.version}</version>
 	<agent>
-		<name>OracleAgent</name>
-		<javaClass>com.soffid.iam.agent.oracle.OracleAgent</javaClass>
-		<userInterface>OracleAgent.zul</userInterface>
-		<enableAccessControl>true</enableAccessControl>
+		<name>Postgresql agent</name>
+		<javaClass>com.soffid.iam.agent.postgresql.PostgresqlAgent</javaClass>
+		<userInterface>PostgresqlAgent.zul</userInterface>
+		<enableAccessControl>false</enableAccessControl>
 		<enableAttributeMapping>true</enableAttributeMapping>
 		<enableObjectTriggers>true</enableObjectTriggers>
-		<object systemObject="SYS.DBA_USERS" soffidObject="user">
+		<object systemObject="pg_users-out" soffidObject="user">
 		</object>
 
-		<object systemObject="DBA_USERS" soffidObject="account">
-				direction="inout" />
+		<object systemObject="pg_user-in" soffidObject="account">
 		</object>
 
-		<object systemObject="SYS.DBA_ROLE" soffidObject="role">
+		<object systemObject="pg_roles" soffidObject="role">
 		</object>
 
-		<object systemObject="SYS.DBA_ROLE_PRIVS" soffidObject="grant">
+		<object systemObject="pg_auth_members" soffidObject="grant">
 		</object>
 
 	</agent>

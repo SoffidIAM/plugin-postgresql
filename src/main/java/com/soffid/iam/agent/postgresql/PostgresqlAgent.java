@@ -238,7 +238,7 @@ public class PostgresqlAgent extends Agent implements UserMgr, RoleMgr,
 			stmt2 = sqlConnection.createStatement();
 			// Comprobar si el usuario existe
 			stmt = sqlConnection
-					.prepareStatement(sentence("SELECT 1 FROM pg_role WHERE rolname=?")); //$NON-NLS-1$
+					.prepareStatement(sentence("SELECT 1 FROM pg_roles WHERE rolname=?")); //$NON-NLS-1$
 			stmt.setString(1, user);
 			rset = stmt.executeQuery();
 			// Determinar si el usuario está o no activo
@@ -1048,7 +1048,8 @@ public class PostgresqlAgent extends Agent implements UserMgr, RoleMgr,
 			Connection sqlConnection = getConnection();
 
 			stmt = sqlConnection
-					.prepareStatement(sentence("select rolname from pg_roles")); //$NON-NLS-1$
+					.prepareStatement(sentence("select rolname from pg_roles where polcanlogin=?")); //$NON-NLS-1$
+			stmt.setBoolean(1, false);
 			rset = stmt.executeQuery();
 			// Determinar si el usuario está o no activo
 			// Si no existe darlo de alta
@@ -1137,7 +1138,7 @@ public class PostgresqlAgent extends Agent implements UserMgr, RoleMgr,
 			Connection sqlConnection = getConnection();
 
 			stmt = sqlConnection
-					.prepareStatement(sentence("select rolname from pg_auth_members, pg_user, pg_roles where meber=usesysid and roleid=oid AND usename=?")); //$NON-NLS-1$
+					.prepareStatement(sentence("select rolname from pg_auth_members, pg_user, pg_roles where member=usesysid and roleid=oid AND usename=?")); //$NON-NLS-1$
 			stmt.setString(1,  userAccount);
 			rset = stmt.executeQuery();
 			// Determinar si el usuario está o no activo
